@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Feedback</title>
+    <title>Feedback</title>
+	<style>
+		label {
+			float: left;
+			width: 150px;
+		}
+
+		#container {
+			width: 700px;
+			margin: auto;
+			background-color: rgb(186, 182, 182);
+		}
+
+		main {
+			padding: 50px;
+		}
+
+		select {
+			float: left;
+			width: 150px;
+		}
+
+		#sourcemsg {
+			padding-left: 300px;
+		}
+		#tableContainer {
+            display: none;
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        #formData {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        #formData th,
+        #formData td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ccc;
+        }
+
+        #formData th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+        #formData tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #formData tr:nth-child(odd) {
+            background-color: #fff;
+        }
+	</style>
+
+    
+</head>
+
+<body>
+    <div id="container">
+        <main>
+            <h2>Feedback</h2>
+            <h3>Love something? Hate something? Let us know!</h3>
+            Note: Fields marked with an asterisk(*) are mandatory
+            <br><br>
+            <form id="form" name="form" method="post" onsubmit="return validateForm()">
+                <label>Title*:</label>
+                <input type="radio" name="title" id="miss" value="Miss." required="required" />Miss
+                <input type="radio" name="title" id="mr" value="Mr." required="required" />Mr.
+                <input type="radio" name="title" id="mrs" value="Mrs." required="required" />Mrs.
+                <br><br>
+                <label for="studentFirstName">Student's First Name*:</label>
+                <input type="text" name="studentFirstName" id="studentFirstName" placeholder="Student's First Name"
+                    required="required" />
+                <br><br>
+                <label for="studentLastName">Student's Last Name*:</label>
+                <input type="text" name="studentLastName" id="studentLastName" placeholder="Student's Last Name"
+                    required="required" />
+                <br><br>
+                <label for="studentEmail">Student's Email*:</label>
+                <input type="text" name="studentEmail" id="studentEmail" placeholder="studentemail@example.com"
+                    required="required" />
+                <br><br>
+                <label for="studentPhoneNumber">Student's Phone Number*:</label>
+                <input type="text" name="studentPhoneNumber" id="studentPhoneNumber" placeholder="123-456-7890"
+                    required="required" />
+                <br><br>
+                <label for="studentAddress1">Student's Address 1*:</label>
+                <input type="text" name="studentAddress1" id="studentAddress1" placeholder="Student Address"
+                    required="required" />
+                <br><br>
+                <label for="studentAddress2">Student's Address 2:</label>
+                <input type="text" name="studentAddress2" id="studentAddress2" placeholder="Student Address" />
+                <br><br>
+                <label for="studentCity">City*:</label>
+                <input type="text" name="studentCity" id="studentCity" placeholder="City" required="required" />
+                <br><br>
+                <label for="studentState">State*:</label>
+                <select name="studentState" id="studentState" required>
+                    <option value="none" selected disabled hidden>Select Student's State</option>
+                    <!-- Add your state options here -->
+                </select>
+                <p id="statemsg" style="color: red; display: none;">Select state</p>
+                <br><br>
+                <label for="studentZipcode">ZipCode*:</label>
+                <input type="text" name="studentZipcode" id="studentZipcode" placeholder="12345" />
+                <br><br>
+                <label for="howDidYouHear">How did the student hear about us*:</label>
+                <input type='checkbox' name="howDidYouHear" value="facebook" /> Facebook
+                <input type='checkbox' name="howDidYouHear" value="google" /> Google
+                <input type='checkbox' name="howDidYouHear" value="yelp" /> Yelp
+                <p id="sourcemsg" style="color: red; display: none;">Select option</p>
+                <br><br>
+                <label for="studentRating">Rating*:</label>
+                <select name="studentRating" id="studentRating" onchange="createCheckboxes()" required>
+                    <option value="none" selected disabled hidden>Select a Rating</option>
+                    <!-- Add your rating options here -->
+                </select>
+                <p id="ratingmsg" style="color: red; display: none;">Select rating</p>
+                <br><br>
+                <div id="checkboxesContainer"></div>
+                <label for="studentComments" required="required">Comments*:</label>
+                <textarea name="studentComments" id="studentComments" placeholder="Comments from the Student"
+                    rows="5" cols="25" required="required"></textarea>
+                <br><br>
+                <input type="Submit" id="submitButton" value=Submit disabled>
+                <input type="Reset">
+                <br><br>
+            </form>
+        </main>
+    </div>
+
+    <div id="tableContainer" style="display: none;">
+        <table border="5" width="100%" id="formData">
+            <!-- Your table structure remains unchanged -->
+        </table>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
